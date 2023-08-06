@@ -21,15 +21,21 @@ function Type_Input({addNewTask, setIputValue, inputValue}){
 
 
 function Tasks({TaskList, deleteTask}) {
+    // This function place each task with the TaskList, and deleteTask is the function where the user can delete the task
+    
     console.log(TaskList)
     return(
         <>
             <div className='List_of_tasks'>
-                <ul>
-                    {TaskList.map((task, index) => {
-                        return <li key={index}>{task[0]} <button onClick={() => deleteTask(task[1])} className='button_task'>X</button></li>
-                    })}
-                </ul>
+                {TaskList.length > 0 ?(
+                       <ul>
+                       {TaskList.map((task, index) => {
+                           return <li key={index}> 
+                           <button onClick={() => deleteTask(task[1])} className='button_task'>X</button> {task[0]} <input type='checkBox' className='checkBox_'/>
+                           </li>
+                       })}
+                   </ul>) : <h3>There aren't any tasks yet!</h3> }
+         
             </div>
         </>
     );
@@ -52,8 +58,8 @@ export default function Main(){
     }
 
     function deleteTask(task_id) {
-        const NewArray = TaskList.splice(task_id, 1)
-        setTasks(NewArray);
+        const updatedTasks = TaskList.filter((task) => task[1] !== task_id);
+        setTasks(updatedTasks);
     }
     
 

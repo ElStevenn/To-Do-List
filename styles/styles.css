@@ -59,6 +59,8 @@ h2{
 
 .list_div {
     margin: auto;
+    border: solid black 2px;
+    border-radius: 10px;
     padding: 30px;
     background-color: blanchedalmond;
     width: fit-content; /* Change width to fit-content to adapt to the size of its contents */
@@ -66,20 +68,29 @@ h2{
 }
 
 .List_of_tasks {
-    text-align: center;
-    padding: 0; /* Remove padding from the list to avoid extra space */
+    width: 700px;
+    padding: 10px; /* Remove padding from the list to avoid extra space */
     list-style: none; /* Remove default list styling */
+    
 }
 
 .List_of_tasks li {
     display: flex;
-    margin: 5px; /* Add margin between items */
-    text-align: left;
+    margin: 0px 0px 20px 0px; /* Add margin between items */
+    align-items: left;
+    font-size: 20px;
 }
  
-
+.button_task{
+    cursor: pointer;
+    background-color: #d11d4a;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-right: 15px;
+}
   
-  
-  
+.checkBox_{
+    width: 20px;
+}
   
   
