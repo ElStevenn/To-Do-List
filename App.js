@@ -10,8 +10,8 @@ function Type_Input({addNewTask, setIputValue, inputValue}){
     return(
         <>
             <div className='search_div'>
-                <input type='text' autoCapitalize="none" placeholder="Type your task here" autoCorrect="off" className='seach_place' id="input_text" onChange={(e) => setIputValue(e.target.value)} value={inputValue}/>
-                <button className="search_button" type='submit' onClick={() => addNewTask(document.getElementById('input_text').value)}><img src={image_logo} alt="search image"></img></button>
+                <input type='text' autoCapitalize="none" placeholder="Type your task here" autoCorrect="off" id="input_text" onChange={(e) => setIputValue(e.target.value)} value={inputValue}/>
+                <button type='submit' onClick={() => addNewTask(document.getElementById('input_text').value)}><img src={image_logo} alt="search image"></img></button>
             </div>
         </>
     );
@@ -31,7 +31,11 @@ function Tasks({TaskList, deleteTask}) {
                        <ul>
                        {TaskList.map((task, index) => {
                            return <li key={index}> 
-                           <button onClick={() => deleteTask(task[1])} className='button_task'>X</button> {task[0]} <input type='checkBox' className='checkBox_'/>
+                            <div>                              
+                                <button onClick={() => deleteTask(task[1])} className='button_task'>
+                                    <img src={cross_logo} alt="search image"/>
+                                </button><p>{task[0]}</p><input type='checkBox' className='checkBox_'/>
+                            </div>
                            </li>
                        })}
                    </ul>) : <h3>There aren't any tasks yet!</h3> }
@@ -53,6 +57,16 @@ function WarningWindow({message, setWarningMessage}){
     } else {
         return;
     }
+}
+
+function ClearWindow({setTasks}) {
+    return(
+        <>
+        <div className='ClearTaskClass'>
+            <button onClick={setTasks}>Clear Tasks</button>
+        </div>
+        </>
+    );
 }
 
 
@@ -87,9 +101,11 @@ export default function Main(){
 
       return(
         <>
+        
         <WarningWindow message={warningMessage} setWarningMessage={() => setWarningMessage(null)}/>
+      
          <div className="out_div">
-            
+            <ClearWindow setTasks={() => setTasks([])}/>
             <Type_Input addNewTask={addNewTask} setIputValue={setIputValue} inputValue={inputValue}/>
             
             <div className='task_outside'>

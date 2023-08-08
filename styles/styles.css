@@ -7,10 +7,17 @@ h1{
     font-size: 50px;
     text-align: center;
     font-weight: 10px bold;
+    text-decoration:underline 10px #0070cc;
+    font-family: monospace;
+    font-weight: 700;
+    color: #2f7a00;
 }
 
 h2{
     font-size: 40px;
+    text-decoration:underline;
+    font-family: monospace;
+    font-weight: 700;
 }
 
 .out_div{
@@ -24,25 +31,40 @@ h2{
     display: block;
 }
 
+.search_div {
+    display:  flex;
+    z-index: 9999;
+    text-align: center;
+    align-items: center;
+    margin-top: 5px;
+    position: relative;
+    justify-content: center; /*This is the style to center the elements*/
+}
 
+.search_div input{
+    font-size: 30px;
+    height: 60px;
+    width: 56%;
+    text-align: center;
+}
 
-.search_button{
-    display: inline-flex;
+.search_div button{
     align-items: center;
     justify-content: center;
     color: #fff;
     border: solid black 1px;
     border-radius: 0% 50% 50% 0%;
     cursor: pointer;
-    margin-top: 10px;
+    
 }
 
-.search_button img{
+.search_div > button > img{
     height: 25px;
     margin-right: 5px;
-    padding: 15px 15px;
+    padding: 17px 15px;
 
 }
+
 .seach_place{
     height: 30px;
     width: 40%;
@@ -64,30 +86,40 @@ h2{
     padding: 30px;
     background-color: blanchedalmond;
     display: flex;
- 
+    justify-content: center;
 }
 
-.List_of_tasks {
-    display: flex;
-    align-items: center;      /* Center vertically */
-    justify-content: center;  /* Center horizontally */
+/*List of task styles*/
+.List_of_tasks {   
     flex-direction: column;   
-    width: 700px;
+    width: 100%;
     padding: 10px; 
     list-style: none;
-    height: 100%; /* Optional: Depends on the height requirement for your list */
 }
 
 .List_of_tasks li {
-    display: flex;
-    margin: 0px 0px 20px 0px; 
+    list-style: none;
     font-size: 20px;
+    display: flex;
+    justify-content: flex-start; /* Alinea los contenidos del div a la izquierda */
 }
 
-.List_of_tasks ul {
-    align-self: flex-start;
+.List_of_tasks > ul {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    padding-left: 0;
+    flex-direction: column;
+    
+}
+
+.List_of_tasks li > div {
+    display: flex;
+    align-items: center; 
+    gap: 10px;          
     width: 100%;
 }
+
 
 .List_of_tasks h3 {
     text-align: center; 
@@ -96,18 +128,35 @@ h2{
 }
 
 
-.button_task{
+.button_task {
+    width: 0px;
+    border: none;
+    height: 0px;
     cursor: pointer;
-    background-color: #d11d4a;
-    font-size: 20px;
-    font-family: sans-serif;
+    display: inline-flex;
+    align-items: center; /* This will ensure the image and text (if any) are vertically centered */
+    border-radius: 50px;
+    padding: 5px 15px; /* Add some padding around the button content */
+    margin-right: 15px;
+    background-color: blanchedalmond;
+    /* You may need to set a background color */
+}
+
+.button_task img {
+    width: 30px;
+    height: 30px;
     margin-right: 15px;
 }
-  
-.checkBox_{
+
+.checkBox_ {
+    padding: 100px;
     width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
-  
+
+
+/*Warning message styles*/
 .warring_mesage {
     background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
     display: inline-block;
@@ -132,4 +181,23 @@ h2{
     padding: 4px;
     font-size: 15px;
     font-weight: bold;
+}
+
+.ClearTaskClass{
+    display: flexbox;
+    transform: (translate(-50%, -50%));
+    position: fixed;
+
+}
+
+.ClearTaskClass button{
+    cursor: pointer;
+    padding: 7px;
+    border: solid black 2px;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: skyblue;
+    margin-top: 19%;
+    margin-left: 50px;
 }
