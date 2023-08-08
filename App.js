@@ -41,17 +41,39 @@ function Tasks({TaskList, deleteTask}) {
     );
 }
 
+function WarningWindow({message, setWarningMessage}){
+    if (message) {
+        return(
+            <>
+                <div className='warring_mesage'>
+                    <h3>{message} <button onClick={setWarningMessage}>X</button></h3>
+                </div>
+            </>
+        );
+    } else {
+        return;
+    }
+}
+
 
 export default function Main(){
     const [TaskList, setTasks] = useState([]);
     const [last_id, setID] = useState(0);
     const [inputValue, setIputValue] = useState("");
+    const [warningMessage, setWarningMessage] = useState("")
+
+    
 
     function addNewTask(task) {
-        if (task) {
+        if (task.length < 3) {
+            setWarningMessage("You have to write at least 4 characters!");
+
+        } else if(task) {
             setTasks([...TaskList, [task, last_id]]);
             setID(last_id +1);
             setIputValue("");
+        } else {
+
         }
 
 
@@ -65,6 +87,7 @@ export default function Main(){
 
       return(
         <>
+        <WarningWindow message={warningMessage} setWarningMessage={() => setWarningMessage(null)}/>
          <div className="out_div">
             
             <Type_Input addNewTask={addNewTask} setIputValue={setIputValue} inputValue={inputValue}/>

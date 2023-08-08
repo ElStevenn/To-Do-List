@@ -58,25 +58,26 @@ h2{
 
 
 .list_div {
-    margin: auto;
+    margin: 0% 10% 0% 10%;
     border: solid black 2px;
     border-radius: 10px;
     padding: 30px;
     background-color: blanchedalmond;
-    width: fit-content; /* Change width to fit-content to adapt to the size of its contents */
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .List_of_tasks {
     width: 700px;
-    padding: 10px; /* Remove padding from the list to avoid extra space */
-    list-style: none; /* Remove default list styling */
+    padding: 10px; 
+    list-style: none; 
     
 }
 
 .List_of_tasks li {
     display: flex;
-    margin: 0px 0px 20px 0px; /* Add margin between items */
+    margin: 0px 0px 20px 0px;
     align-items: left;
     font-size: 20px;
 }
@@ -93,4 +94,28 @@ h2{
     width: 20px;
 }
   
-  
+.warring_mesage {
+    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
+    display: inline-block;
+    position: fixed;  /* or absolute, but fixed will keep it in view even if you scroll */
+    z-index: 9999;
+    padding: 5px;
+    border-radius: 10px;
+    border: solid black 1px;
+    box-shadow: 0px -1px 10px gray;
+    margin-left: 30%;
+    margin-top: -50px;
+    transform: translate(-50%, -50%); /* shifts back by half its width and height */
+}
+
+.warring_mesage h3{
+    font-size: 20px;
+    color: #d11d4a;
+}
+.warring_mesage button{
+    cursor: pointer;
+    background-color: #d11d4a;
+    padding: 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
