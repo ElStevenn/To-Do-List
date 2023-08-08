@@ -64,24 +64,38 @@ h2{
     padding: 30px;
     background-color: blanchedalmond;
     display: flex;
-    align-items: center;
-    justify-content: center;
+ 
 }
 
 .List_of_tasks {
+    display: flex;
+    align-items: center;      /* Center vertically */
+    justify-content: center;  /* Center horizontally */
+    flex-direction: column;   
     width: 700px;
     padding: 10px; 
-    list-style: none; 
-    
+    list-style: none;
+    height: 100%; /* Optional: Depends on the height requirement for your list */
 }
 
 .List_of_tasks li {
     display: flex;
-    margin: 0px 0px 20px 0px;
-    align-items: left;
+    margin: 0px 0px 20px 0px; 
     font-size: 20px;
 }
- 
+
+.List_of_tasks ul {
+    align-self: flex-start;
+    width: 100%;
+}
+
+.List_of_tasks h3 {
+    text-align: center; 
+    margin: 0; /* Resetting any margin */
+    padding: 0; /* Resetting any padding */
+}
+
+
 .button_task{
     cursor: pointer;
     background-color: #d11d4a;
